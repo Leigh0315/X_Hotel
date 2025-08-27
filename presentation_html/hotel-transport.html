@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Hotel - 地點與景點</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* 您提供的按鈕樣式 */
+        .btn-outline-brown {
+            color: rgba(100, 70, 50, 1);
+            border-color: rgba(179, 139, 122, 1);
+        }
+
+        .btn-outline-brown:hover,
+        .btn-outline-brown:active,
+        .btn-outline-brown:focus {
+            background-color: rgba(179, 139, 122, 1);
+            color: white;
+            border-color: rgba(179, 139, 122, 1);
+        }
+
+        /* 內容標題的裝飾性垂直線 */
+        .title-heading {
+            border-left: 4px solid rgba(179, 139, 122, 1);
+            padding-left: 0.75rem;
+        }
+        
+        /* 增加區塊間的距離 */
+        body {
+            padding-top: 70px; /* 根據navbar高度增加padding，避免內容被遮擋 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container-fluid px-3">
+
+        <a class="navbar-brand fs-4 fw-bold" href="#" style="color: rgba(160, 116, 67, 0.716);">X Hotel</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./hotel_main.html">主頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./hotel_facities.html">設施</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./hotel-transport.html">地點與景點</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./hotel_rooms.html">客房</a>
+                </li>
+            </ul>
+
+            <div id="login-button-container" class="d-flex align-items-center">
+                 <a id="login-button" href="./hotel_login.html" class="btn btn-outline-brown ms-lg-3" style="color: black;">會員登入</a>
+            </div>
+        </div>
+
+        </div>
+</nav>
+
+    <main class="container my-5">
+
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="mb-5">
+                    <h2 class="h4 fw-bold title-heading">地點與詳細資訊</h2>
+                    <ul class="list-unstyled mt-3 text-secondary">
+                        <li><strong>電話:</strong> 86-91-555-888</li>
+                        <li><strong>Email:</strong> welcom@xhotel-taichung.com</li>
+                        <li><strong>地址:</strong> 西屯區臺灣大道四段 40360 12樓</li>
+                        <li class="mt-2"><strong>Check-in:</strong> 2:00 下午</li>
+                        <li><strong>Check-out:</strong> 11:00 上午</li>
+                        <li><strong>Min-check-in-age:</strong> 18 歲</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="h4 fw-bold title-heading">交通方式</h2>
+                    <div class="mt-3 text-secondary">
+                        <p><strong><i class="fas fa-car"></i> 自行開車</strong><br>
+                            國道1號下中港交流道（梅花-A號），可到飯店，備有停車場（住宿旅客免費停車）。</p>
+                        <p><strong><i class="fas fa-bus"></i> 高鐵接駁</strong><br>
+                            在6號出口轉乘 161號，約15分鐘後，達西屯區臺灣大道四段（站名），步行2分鐘。</p>
+                        <p><strong><i class="fas fa-taxi"></i> 搭乘計程車 (TAXI)</strong><br>
+                            從高鐵站搭乘計程車（上午6點到下午4點），每人每位 NTD 30。</p>
+                        <p><strong><i class="fas fa-bus-alt"></i> 公車資訊</strong><br>
+                            搭乘市區公車請於XX站下車，從中港路走，約5分鐘到達飯店。可搭乘 33, 45, 125, 69。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <a href="https://maps.app.goo.gl/8Scr1Z2su1yoFxWeA">
+                <img src="../pics_xhotel/飯店地圖.png" class="img-fluid rounded shadow" alt="飯店地圖">
+                </a>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="h3 fw-bold title-heading">附近景點 <span class="fs-4">大大森林公園</span></h2>
+                <p class="mt-3 text-secondary lh-lg">
+                    距離 X Hotel 僅一箭之遙，大大森林公園是都市中的一片綠洲。佔地67.34公頃，以其茂密的樹林和寧靜的氛圍而聞名。無論您是尋求寧靜的時刻還是清爽的慢跑，這片寧靜的綠洲都會是您城市探險的完美起點。
+                </p>
+            </div>
+            <div class="col-lg-6">
+                 
+                 <img src="../pics_xhotel/森林公園.png" class="img-fluid rounded shadow" alt="大大森林公園">
+                 
+    
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+    // 登出函式
+    function logout() {
+        sessionStorage.removeItem('isLoggedIn');
+        window.location.reload();
+    }
+
+    // 切換帳號函式
+    function switchAccount() {
+        sessionStorage.removeItem('isLoggedIn');
+        window.location.href = 'hotel_login.html';
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        
+        // 【修正點 1】直接選取登入按鈕本身
+        const loginButton = document.getElementById('login-button');
+
+        if (isLoggedIn === 'true' && loginButton) {
+            // 建立一個新的 div 作為下拉選單的容器
+            // 將原按鈕的 margin 樣式加到新容器上，以維持排版
+            const dropdownContainer = document.createElement('div');
+            dropdownContainer.className = 'dropdown ms-lg-3';
+
+            dropdownContainer.innerHTML = `
+                <a href="#" class="btn btn-outline-brown dropdown-toggle" id="user-avatar-button" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-avatar-button">
+                    <li><a class="dropdown-item" href="./hotel_account.html">檢視/修改會員帳號</a></li>
+                    <li><a class="dropdown-item" href="#" id="switch-account-btn">換另一個帳號</a></li>
+                    <li><a class="dropdown-item" href="#" id="logout-btn">登出</a></li>
+                </ul>
+            `;
+            
+            // 【修正點 2】用新的下拉選單元件「替換掉」舊的登入按鈕
+            loginButton.replaceWith(dropdownContainer);
+
+            // 為新的選項按鈕加上點擊事件
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                logout();
+            });
+
+            document.getElementById('switch-account-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchAccount();
+            });
+        }
+    });
+</script>
+</body>
+
+</html>

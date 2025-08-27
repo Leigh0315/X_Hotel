@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Hotel - 預訂結帳</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* User-provided button style */
+        .btn-outline-brown {
+            color: rgba(100, 70, 50, 1);
+            border-color: rgba(179, 139, 122, 1);
+            --bs-btn-hover-bg: rgba(179, 139, 122, 1);
+            --bs-btn-hover-border-color: rgba(179, 139, 122, 1);
+            --bs-btn-active-bg: rgba(179, 139, 122, 1);
+            --bs-btn-active-border-color: rgba(179, 139, 122, 1);
+            --bs-btn-hover-color: white;
+            --bs-btn-active-color: white;
+        }
+
+        .btn-submit {
+            background-color: #8B5A42;
+            color: white;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            border: none;
+        }
+
+        .btn-submit:hover {
+            background-color: #7a4f3a;
+            color: white;
+        }
+
+        .booking-summary-card {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            padding: 1.5rem;
+        }
+
+        .form-section {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            padding: 2rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #000;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container-fluid px-3 px-lg-5">
+
+            <a class="navbar-brand fs-4 fw-bold" href="./hotel_main.html" style="color: rgba(160, 116, 67, 0.716);">X Hotel</a>
+
+    </nav>
+
+    <main class="container py-5">
+        <div class="row g-4 g-lg-5">
+
+            <div class="col-lg-5 order-lg-2">
+                <div class="booking-summary-card">
+                    <img src="../pics_xhotel/尊享客房.png" class="img-fluid rounded mb-3" alt="尊享客房" data-booking-image>
+
+                    <h3 class="mb-3" data-room-type>尊享客房</h3>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold">總價</span>
+                        <span class="fs-4 fw-bold" data-total-price>7,564 TWD</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>日期</span>
+                        <span data-booking-dates>6月3-4, 2025 (1晚)</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <span>訂房</span>
+                        <span data-booking-details>1客房, 1賓客</span>
+                    </div>
+
+                    <div class="accordion" id="bookingDetailsAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    訂金與取消政策
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#bookingDetailsAccordion">
+                                <div class="accordion-body">
+                                    <p>為確保您的訂房權益，X Hotel 將於預訂時收取 房價的 30% 作為訂金。餘額可於入住當日現場付款或於入住前三日內線上完成結清。
+
+                                        取消與更改政策如下：</p>
+                                    <p>• 入住日前 7 天內取消或更改預訂，訂金恕不退還。</p>
+                                    <p>• 入住日前 8～14 天取消，將酌收 50% 訂金作為行政處理費，其餘退還。</p>
+                                    <p>• 入住日前 15 天以上取消，可全額退還訂金，或選擇保留作為六個月內再次預訂之使用。</p>
+
+                                    <p>如遇天災或不可抗力因素（如颱風、地震等），請主動聯繫我們，將依實際情況協助處理取消與延期事宜。</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    稅金和額外費用描述
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#bookingDetailsAccordion">
+                                <div class="accordion-body">
+                                    <p>所有房價皆 已含 10% 服務費與 5% 營業稅，無需另行加價。若您有額外消費（如迷你吧、客房送餐服務、延後退房等），將於退房時一併結算。
+
+                                        以下為常見額外費用項目（如適用）：</p>
+                                    <p>• 加床服務：每晚 NT$800（含備品與早餐）</p>
+                                    <p>• 接駁服務：提供機場與車站接送，請提前預約（費用依距離計算 </p>
+                                    <p>• 寵物入住清潔費：每隻每晚 NT$500（僅限特定房型）</p>
+                                    <p>• 停車費用：每房提供一車位免費，如需額外車位每晚 NT$300</p>
+
+                                    <p>所有額外費用將於退房時列入帳單，敬請知悉。如有特殊需求歡迎事先告知，我們將盡力為您安排。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    重要公告
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#bookingDetailsAccordion">
+                                <div class="accordion-body">
+                                    <p>為維護全體賓客的住宿品質與安全，X Hotel 提醒您注意以下事項：</p>
+                                    <p>• 入住時間為下午 3:00 後，退房時間為中午 11:00 前，如需延遲退房請提前告知，將視當日房況酌收費用。</p>
+                                    <p>• 全館 禁止吸菸與使用明火，違者將酌收清潔費與相關罰款。</p>
+                                    <p>• 晚間 10:00 起為安靜時段，請降低音量，避免影響他人休息。</p>
+                                    <p>• 為保障賓客財物安全，請妥善保管個人物品，貴重物品請寄存櫃台保險箱，本館不負保管責任。</p>
+                                    <p>• 若有任何緊急狀況或協助需求，請即刻聯繫櫃台，我們將竭誠為您服務。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 order-lg-1">
+                <div class="form-section">
+                    <h2 class="mb-4">付款頁面</h2>
+                    <form>
+                        <h4 class="mb-3 fs-5">訂房人資訊</h4>
+                        <div class="row g-3 mb-4">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">名字</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">姓氏</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="phone" class="form-label">電話</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">電子郵件</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="country" class="form-label">國家/地區</label>
+                                <input type="text" class="form-control" id="country" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="address" class="form-label">地址</label>
+                                <input type="text" class="form-control" id="address" required>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3 fs-5">支付資訊</h4>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="cc-firstName" class="form-label">持卡人名字</label>
+                                <input type="text" class="form-control" id="cc-firstName" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="cc-lastName" class="form-label">持卡人姓氏</label>
+                                <input type="text" class="form-control" id="cc-lastName" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="cc-number" class="form-label">卡號</label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-expiration" class="form-label">到期日</label>
+                                <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-cvv" class="form-label">安全碼 (CVV)</label>
+                                <input type="text" class="form-control" id="cc-cvv" required>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3 fs-5">條款與附則</h4>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terms-agree" required>
+                            <label class="form-check-label" for="terms-agree">
+                                預訂即表示本人證明，本人已閱讀並接受[使用條款]以及[隱私權聲明]，並已閱讀並理解飯店在我的訂房方面的房價說明與規章。
+                            </label>
+                        </div>
+                        <div class="form-check mt-2">
+                            <input type="checkbox" class="form-check-input" id="member-agree">
+                            <label class="form-check-label" for="member-agree">
+                                如果目前無會員，但想加入X Hotel 會員再勾選。
+                                加入 X Hotel 會員即表示本人證明，本人已閱讀並接受[X Hotel 會員條款及細則]、[隱私權聲明]。
+                            </label>
+                        </div>
+                        
+                        <div id="password-section" style="display: none;" class="mt-3">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label for="password" class="form-label">設定密碼</label>
+                                    <input type="password" class="form-control" id="password" placeholder="請設定您的密碼">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="confirm-password" class="form-label">確認密碼</label>
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="請再次輸入密碼">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-submit w-100 mt-4" type="submit">預訂</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="modal fade" id="bookingSuccessModal" tabindex="-1" aria-labelledby="bookingSuccessModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="bookingSuccessModalLabel">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
+                        預訂成功！
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="lead">感謝您的預訂，以下是您的訂房資訊：</p>
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <strong>客房類型:</strong>
+                            <span id="modal-room-type"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <strong>入住日期:</strong>
+                            <span id="modal-booking-dates"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <strong>訂房內容:</strong>
+                            <span id="modal-booking-details"></span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between fs-5 fw-bold mt-2">
+                            <span>總金額:</span>
+                            <span id="modal-total-price" class="text-success"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    
+    // ▼▼▼ 您要貼上的程式碼從這裡開始 ▼▼▼
+    function autoFillLoggedInUserData() {
+        // 這行 fetch 指令是關鍵
+        fetch('get_user_data.php') // 直接呼叫，不需要加 ?email=...
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success' && result.data) {
+                    const userData = result.data;
+                    
+                    // 將資料填入表單欄位
+                    document.getElementById('firstName').value = userData.FirstName || '';
+                    document.getElementById('lastName').value = userData.LastName || '';
+                    document.getElementById('phone').value = userData.Phone || '';
+                    document.getElementById('email').value = userData.Email || '';
+                    document.getElementById('country').value = userData.Country || '';
+                    document.getElementById('address').value = userData.Address || '';
+
+                    // (可選) 為了避免使用者修改，可以將 Email 設為唯讀
+                    document.getElementById('email').readOnly = true;
+
+                    // (可選) 自動隱藏或禁用註冊會員的選項
+                    const memberSection = document.getElementById('member-agree').closest('.form-check');
+                    if(memberSection) memberSection.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.warn('獲取會員資料失敗，將轉為手動填寫模式:', error);
+            });
+    }
+    
+    // 呼叫上面定義好的函式，讓它在頁面載入後立刻執行
+    autoFillLoggedInUserData();
+    // ▲▲▲ 您要貼上的程式碼到這裡結束 ▲▲▲
+
+
+    // --- 以下是您檔案中原本就有的程式碼，維持不變 ---
+    const params = new URLSearchParams(window.location.search);
+    const roomType = params.get('roomType') || '未選擇房型';
+    const price = params.get('price') || '0';
+    const image = params.get('image') || '../pics_xhotel/尊享客房.png';
+    const checkin = params.get('checkin');
+    const checkout = params.get('checkout');
+    const rooms = params.get('rooms') || '1';
+    const guests = params.get('guests') || '1';
+
+    function calculateNights(date1, date2) {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+        if (isNaN(d1) || isNaN(d2)) return 1;
+        const diffTime = Math.abs(d2 - d1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays > 0 ? diffDays : 1;
+    }
+
+    function formatDate(dateString) {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return `${date.getMonth() + 1}月${date.getDate()}日`;
+    }
+
+    const nights = calculateNights(checkin, checkout);
+    const totalPrice = (parseFloat(price.replace(/,/g, '')) * nights);
+    
+    document.querySelector('[data-booking-image]').src = image;
+    document.querySelector('[data-room-type]').textContent = roomType;
+    document.querySelector('[data-total-price]').textContent = `${totalPrice.toLocaleString()} TWD`;
+    document.querySelector('[data-booking-dates]').textContent = `${formatDate(checkin)} - ${formatDate(checkout)} (${nights}晚)`;
+    document.querySelector('[data-booking-details]').textContent = `${rooms} 客房, ${guests} 賓客`;
+
+    const bookingForm = document.querySelector('.form-section form');
+    const successModalElement = document.getElementById('bookingSuccessModal');
+    const successModal = new bootstrap.Modal(successModalElement);
+
+    const memberAgreeCheckbox = document.getElementById('member-agree');
+    const passwordSection = document.getElementById('password-section');
+
+    memberAgreeCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            passwordSection.style.display = 'block';
+        } else {
+            passwordSection.style.display = 'none';
+        }
+    });
+
+    bookingForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+        event.stopPropagation();
+
+        if (!bookingForm.checkValidity()) {
+            bookingForm.classList.add('was-validated');
+            return;
+        }
+        
+        const submitButton = bookingForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = '處理中...';
+
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            country: document.getElementById('country').value,
+            address: document.getElementById('address').value,
+            roomType: roomType,
+            checkInDate: checkin,
+            checkOutDate: checkout,
+            totalPrice: totalPrice,
+            numGuests: guests,
+            numRooms: rooms,
+            agreedToTerms: document.getElementById('terms-agree').checked,
+            createMember: document.getElementById('member-agree').checked,
+            password: document.getElementById('password').value
+        };
+
+        fetch('process_booking.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`伺服器錯誤: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('modal-room-type').textContent = roomType;
+                document.getElementById('modal-booking-dates').textContent = `${formatDate(checkin)} - ${formatDate(checkout)} (${nights}晚)`;
+                document.getElementById('modal-booking-details').textContent = `${rooms} 客房, ${guests} 賓客`;
+                document.getElementById('modal-total-price').textContent = `${totalPrice.toLocaleString()} TWD`;
+                successModal.show();
+                bookingForm.reset(); 
+                bookingForm.classList.remove('was-validated');
+            } else {
+                alert(`預訂失敗: ${data.message}`);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch 錯誤:', error);
+            alert(`發生預期外的錯誤，請稍後再試。 ${error.message}`);
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = '預訂';
+        });
+    });
+});
+</script>
+</body>
+
+</html>

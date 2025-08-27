@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X_Hotel_main</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .btn-outline-brown {
+            color: rgba(100, 70, 50, 1);
+            border-color: rgba(179, 139, 122, 1);
+        }
+
+        .btn-outline-brown:hover,
+        .btn-outline-brown:active,
+        .btn-outline-brown:focus {
+            background-color: rgba(179, 139, 122, 1);
+            color: white;
+            border-color: rgba(179, 139, 122, 1);
+
+        }
+
+        .hero-section {
+            background: url("../pics_xhotel/hotel_nightview.png") no-repeat center center;
+            background-size: cover;
+            min-height: calc(100vh - 0px);
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: multiply;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+        <div class="container-fluid px-3">
+
+            <a class="navbar-brand fs-4 fw-bold" href="#" style="color: rgba(160, 116, 67, 0.716);">X Hotel</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./hotel_main.html">主頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./hotel_facities.html">設施</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./hotel-transport.html">地點與景點</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./hotel_rooms.html">客房</a>
+                    </li>
+                </ul>
+
+                <div id="login-button-container" class="d-flex align-items-center">
+                    <a id="login-button" href="./hotel_login.html" class="btn btn-outline-brown ms-lg-3"
+                        style="color: black;">會員登入</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <main>
+        <div class="hero-section d-flex align-items-center justify-content-center text-center">
+
+            <div class="container">
+                <h1 class="display-2 fw-bold text-white">X HOTEL</h1>
+                <p class="lead col-md-8 mx-auto text-white-50 mb-5">
+                    座落於城市心臟地帶，X Hotel 是一座專為追求極致品味與豐富旅程而生的現代奢華酒店。從建築外觀到室內設計，X Hotel 結合當代藝術與美學工藝，每一處細節都訴說著不妥協的美學態度。
+                </p>
+
+                <div class="booking-form-panel bg-light p-4 rounded-3 shadow col-lg-10 mx-auto">
+                    <form action="hotel-booking.html" method="GET">
+                        <div class="row align-items-center g-3">
+
+                            <div class="col-lg">
+                                <label class="form-label visually-hidden">賓客</label>
+                                <select name="guests" class="form-select">
+                                    <option value="1">1 位賓客</option>
+                                    <option value="2" selected>2 位賓客</option>
+                                    <option value="3">3 位賓客</option>
+                                    <option value="4">4 位賓客</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg">
+                                <label class="form-label visually-hidden">入住 - 退房日期</label>
+                                <div class="input-group">
+                                    <input type="date" name="checkin" class="form-control" aria-label="入住日期">
+                                    <input type="date" name="checkout" class="form-control" aria-label="退房日期">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-auto">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-warning btn-check-price">查看價格</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // 登出函式
+        function logout() {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.reload();
+        }
+
+        // 切換帳號函式
+        function switchAccount() {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'hotel_login.html';
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+
+            // 【修正點 1】直接選取登入按鈕本身
+            const loginButton = document.getElementById('login-button');
+
+            if (isLoggedIn === 'true' && loginButton) {
+                // 建立一個新的 div 作為下拉選單的容器
+                // 將原按鈕的 margin 樣式加到新容器上，以維持排版
+                const dropdownContainer = document.createElement('div');
+
+
+                dropdownContainer.innerHTML = `
+                <a href="#" class="btn btn-outline-brown dropdown-toggle" id="user-avatar-button" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-avatar-button">
+                    <li><a class="dropdown-item" href="./hotel_account.html">檢視/修改會員帳號</a></li>
+                    <li><a class="dropdown-item" href="#" id="switch-account-btn">換另一個帳號</a></li>
+                    <li><a class="dropdown-item" href="#" id="logout-btn">登出</a></li>
+                </ul>
+            `;
+
+                // 【修正點 2】用新的下拉選單元件「替換掉」舊的登入按鈕
+                loginButton.replaceWith(dropdownContainer);
+
+                // 為新的選項按鈕加上點擊事件
+                document.getElementById('logout-btn').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    logout();
+                });
+
+                document.getElementById('switch-account-btn').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    switchAccount();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>

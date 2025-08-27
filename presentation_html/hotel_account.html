@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Hotel - 會員資料</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #8B7D74; /* 灰褐色背景 */
+            padding: 40px 0;
+        }
+
+        .account-container {
+            background-color: #FFFFFF; /* 白色容器 */
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 650px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .account-container h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .account-container h1 a {
+            text-decoration: none;
+            color: #A98E81; /* 暖棕色 */
+        }
+
+        .account-container h2 {
+            margin-top: 5px;
+            margin-bottom: 25px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .input-field:read-only {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .form-label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .btn-submit {
+            background-color: #A98E81; /* 暖棕色 */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-submit:hover {
+            background-color: #8B7D74; /* 灰褐色 */
+        }
+        
+        .link-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .link-home:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="account-container">
+        <form id="accountForm">
+            <h1><a href="#">X-Hotel</a></h1>
+            <h2>會員帳戶資料</h2>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="lastName" class="form-label">姓氏</label>
+                    <input type="text" id="lastName" name="lastName" class="input-field" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="firstName" class="form-label">名字</label>
+                    <input type="text" id="firstName" name="firstName" class="input-field" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="username" class="form-label">帳號 (Email)</label>
+                <input type="text" id="username" name="username" class="input-field" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">更新密碼</label>
+                <input type="password" id="password" name="password" class="input-field" placeholder="留空表示不變更">
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">居住地</label>
+                <input type="text" id="address" name="address" class="input-field" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="phone" class="form-label">電話</label>
+                <input type="tel" id="phone" name="phone" class="input-field" required>
+            </div>
+
+            <button type="submit" class="btn-submit">確認修改</button>
+            <a href="./hotel_main.html" class="link-home">回到首頁</a>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // 當頁面載入完成後，自動從後端獲取會員資料
+        document.addEventListener('DOMContentLoaded', function() {
+            // 這個函數會向後端發送請求以獲取當前登入會員的資料
+            // 這裡是模擬從後端成功獲取資料後的情境
+            // 實際情況下，您需要透過 fetch API 連接到真實的後端 (例如 process_account.php)
+            fetchUserData();
+        });
+
+        function fetchUserData() {
+            // *** 開發注意：這裡的 URL 需要替換成您真實的後端API端點 ***
+            fetch('process_account.php?action=get_data')
+            .then(response => {
+                // 模擬網路延遲和處理非200的狀況
+                if (!response.ok) {
+                    // 如果後端回傳錯誤，就不填充資料，直接使用模擬資料
+                    console.error('無法從後端獲取資料，將使用模擬資料');
+                    populateFormWithMockData();
+                    return; // 中斷後續 .then()
+                }
+                return response.json();
+            })
+            // 【請換成這段新的、正確的部分】
+.then(result => { 
+    // 檢查後端是否回傳成功，並且 'data' 物件是否存在
+    if (result.success && result.data) {
+        // 從 result 物件中，打開 'data' 這個小盒子來取用裡面的值
+        const userData = result.data; 
+        document.getElementById('lastName').value = userData.lastName;
+        document.getElementById('firstName').value = userData.firstName;
+        document.getElementById('username').value = userData.username;
+        document.getElementById('address').value = userData.address;
+        document.getElementById('phone').value = userData.phone;
+    } else {
+        // 如果 success 為 false 或缺少 data 物件，也視為錯誤
+        console.error('後端回報錯誤: ', result.message);
+        populateFormWithMockData();
+    }
+})
+            .catch(error => {
+                // 如果fetch本身出錯(如網路問題或URL錯誤)，也使用模擬資料
+                console.error('獲取會員資料時發生錯誤:', error);
+                populateFormWithMockData();
+            });
+        }
+        
+        // 模擬資料填充函數，方便在沒有後端時進行前端開發
+        function populateFormWithMockData() {
+            console.log("正在使用模擬資料填充表單。");
+            document.getElementById('lastName').value = '王';
+            document.getElementById('firstName').value = '小明';
+            document.getElementById('username').value = 'ming.wang@example.com';
+            document.getElementById('address').value = '台中市南屯區公益路二段51號';
+            document.getElementById('phone').value = '0912345678';
+        }
+
+
+        // 監聽表單提交事件
+        document.getElementById('accountForm').addEventListener('submit', function(event) {
+            // 防止表單預設的同步提交行為
+            event.preventDefault();
+
+            // 收集表單資料
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            // 如果密碼欄位是空的，就從要提交的資料中移除，避免後端誤以為要改成空密碼
+            if (!data.password) {
+                delete data.password;
+            }
+
+            // *** 開發注意：這裡的 URL 需要替換成您真實的後端API端點 ***
+            fetch('process_account.php?action=update_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('會員資料更新成功！');
+                    // 根據要求，重整畫面以顯示更新後的資訊
+                    location.reload();
+                } else {
+                    alert('更新失敗：' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('提交更新時發生錯誤:', error);
+                // 即使後端連接失敗，也模擬成功流程，方便前端測試
+                alert('模擬更新成功！');
+                location.reload();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
