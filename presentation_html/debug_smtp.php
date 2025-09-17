@@ -10,7 +10,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // --- 引入 Composer Autoloader ---
-// 【重要】請根據您的專案結構，只保留下面其中一個 `require`
+
 require __DIR__ . '/vendor/autoload.php';      // 方案 A: `vendor` 資料夾在同一層
 // require __DIR__ . '/../vendor/autoload.php';   // 方案 B: `vendor` 資料夾在上一層
 
@@ -32,8 +32,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'leighmingchin@gmail.com'; // 【修改】您的 Gmail 帳號
-    $mail->Password   = 'pjuoaakmsigwerwx';        // 【修改】您的 16 位應用程式密碼
+    $mail->Username   = 'leighmingchin@gmail.com'; //  Gmail 帳號
+    $mail->Password   = '';        //  16 位應用程式密碼
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 

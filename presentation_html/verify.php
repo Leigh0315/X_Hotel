@@ -12,7 +12,7 @@ error_reporting(E_ALL);
 $db_host = '127.0.0.1';
 $db_user = 'root';
 $db_pass = '';
-$db_name = 'Ｘ＿Hotel'; // 【檢查】請確認您的資料庫名稱
+$db_name = 'Ｘ＿Hotel'; 
 
 // --- 建立資料庫連線 ---
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
@@ -28,8 +28,8 @@ if (!$token) {
 }
 
 try {
-    // --- 開始除錯 ---
-    // 步驟 A: 先只用 token 找找看，不管有沒有過期或驗證過
+    // --- 除錯步驟 ---
+    
     $stmt_debug = $conn->prepare("SELECT * FROM Users WHERE VerificationToken = ? LIMIT 1");
     $stmt_debug->bind_param("s", $token);
     $stmt_debug->execute();
@@ -37,11 +37,11 @@ try {
     $stmt_debug->close();
 
     if (!$user_debug_info) {
-        // 如果連 token 都找不到，那就是最根本的問題
+     
         die("<h1>❌ 驗證失敗</h1><p>原因：資料庫中完全找不到這個驗證碼。</p><p>請確認您點擊的是最新的驗證信。</p>");
     }
 
-    // 如果找到了，我們來分析為什麼驗證會失敗
+    
     $is_expired = strtotime($user_debug_info['TokenExpiresAt']) < time();
     $is_already_verified = $user_debug_info['UserStatus'] !== 'Unverified';
 
@@ -80,7 +80,7 @@ try {
     // 顯示成功訊息
     echo "<h1>✅ 驗證成功！</h1>";
     echo "<p>您的帳號 ({$user_debug_info['Email']}) 已經成功啟用。</p>";
-    // 【檢查】請確認這裡的路徑是否正確
+
     echo "<p>系統已為您自動登入，<a href='http://localhost/S_presentation/presentation_html/hotel_login.html'>點此前往登入頁面</a>。</p>"; 
 
 } catch (Exception $e) {

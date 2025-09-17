@@ -5,8 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// 這是最重要的一行！載入 Composer 的自動載入器
-// 這會讓您能夠使用所有透過 Composer 安裝的套件，而不需要手動 require 任何檔案
+
 require 'vendor/autoload.php';
 
 // 建立一個 PHPMailer 的新物件
@@ -16,12 +15,12 @@ try {
     //Server settings (伺服器設定)
     $mail->SMTPDebug = SMTP::DEBUG_OFF;      // 關閉詳細的 debug 訊息，上線時建議使用
     $mail->isSMTP();                         // 設定使用 SMTP 協定發信
-    $mail->Host       = 'smtp.gmail.com';    // 設定您的 SMTP 伺服器 (以 Gmail 為例)
+    $mail->Host       = 'smtp.gmail.com';    // 設定 SMTP 伺服器 (以 Gmail 為例)
     $mail->SMTPAuth   = true;                // 啟用 SMTP 驗證
-    $mail->Username   = 'leighmingchin@gmail.com'; // 您的 Gmail 帳號
-    $mail->Password   = 'pjuoaakmsigwerwx';    // 【重要】您的 Gmail「應用程式密碼」，不是登入密碼！
+    $mail->Username   = 'leighmingchin@gmail.com'; // 您 Gmail 帳號
+    $mail->Password   = '';    //  Gmail「應用程式密碼」
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // 啟用 SSL 加密
-    $mail->Port       = 465;                 // SMTP port，使用 SSL 時通常為 465
+    $mail->Port       = 465;                 // SMTP port
 
     //Recipients (收件人設定)
     $mail->setFrom('from@example.com', '寄件人名稱'); // 寄件人 Email 和名稱

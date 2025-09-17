@@ -13,7 +13,6 @@
             background-color: #f8f9fa;
         }
 
-        /* --- 您提供的按鈕樣式 --- */
         .btn-outline-brown {
             color: rgba(100, 70, 50, 1);
             border-color: rgba(179, 139, 122, 1);
@@ -69,14 +68,14 @@
             width: 100%;
             padding: 0.75rem;
             text-align: center;
-            text-decoration: none; /* << 新增：移除超連結底線 */
+            text-decoration: none; 
             /* 預設隱藏 */
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
         
-        /* << 新增：確保滑鼠懸停時樣式正確 */
+        
         .room-card .select-button:hover {
             text-decoration: none;
             color: white;
@@ -289,7 +288,7 @@
                 </ul>
             `;
             
-            // 【修正點 2】用新的下拉選單元件「替換掉」舊的登入按鈕
+            // 用新的下拉選單元件「替換掉」舊的登入按鈕
             loginButton.replaceWith(dropdownContainer);
 
             // 為新的選項按鈕加上點擊事件

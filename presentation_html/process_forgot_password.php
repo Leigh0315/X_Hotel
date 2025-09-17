@@ -8,7 +8,7 @@
 ob_start();
 
 // --- 引入 Composer Autoloader ---
-// 【重要】請根據您的專案結構，只保留下面其中一個 `require`
+
 require __DIR__ . '/vendor/autoload.php';      // 方案 A: `vendor` 資料夾在同一層
 // require __DIR__ . '/../vendor/autoload.php';   // 方案 B: `vendor` 資料夾在上一層
 // require __DIR__ . '/../../vendor/autoload.php'; // 方案 C: `vendor` 資料夾在更上層
@@ -72,8 +72,8 @@ try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'leighmingchin@gmail.com'; // 【修改】您的 Gmail 帳號
-        $mail->Password   = 'pjuoaakmsigwerwx';        // 【修改】您的 16 位應用程式密碼
+        $mail->Username   = 'leighmingchin@gmail.com'; //  Gmail 帳號
+        $mail->Password   = '';        //  16 位應用程式密碼
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
         
@@ -83,7 +83,7 @@ try {
         $mail->CharSet = 'UTF-8';
         $mail->Subject = 'X-Hotel飯店訂房網 - 密碼重設請求';
         
-        // 【修改】請確認您的專案路徑正確
+        
         $reset_link = "http://localhost/S_presentation/presentation_html/reset_password.php?token=" . $token;
         
         $mail->Body = "<h3>親愛的 {$user['LastName']} {$user['FirstName']}，您好！</h3><p>我們收到了您的密碼重設請求。請點擊下方的連結來設定您的新密碼：</p><p><a href='{$reset_link}' style='padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;'>重設密碼</a></p><p>此連結將在 15 分鐘後失效。如果您沒有提出此請求，請忽略此郵件。</p>";

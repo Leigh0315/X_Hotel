@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 $db_host = '127.0.0.1';
 $db_user = 'root';
 $db_pass = '';
-// 【關鍵修正】將資料庫名稱改為您其他檔案中使用的全形版本
+
 $db_name = 'Ｘ＿Hotel';
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
@@ -66,7 +66,7 @@ try {
     if ($stmt_update->affected_rows > 0) {
         $conn->commit();
         ob_clean();
-        // 【修改】請將 'hotel_login.html' 換成您登入頁面的真實路徑
+        
         echo json_encode(['success' => true, 'message' => '密碼已成功更新！請 <a href="hotel_login.html">點此前往登入</a>。']);
     } else {
         throw new Exception("更新密碼失敗，資料庫未回報任何變更。");

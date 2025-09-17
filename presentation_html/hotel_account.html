@@ -17,12 +17,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #8B7D74; /* 灰褐色背景 */
+            background-color: #8B7D74; 
             padding: 40px 0;
         }
 
         .account-container {
-            background-color: #FFFFFF; /* 白色容器 */
+            background-color: #FFFFFF; 
             padding: 40px 50px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -87,7 +87,7 @@
         }
 
         .btn-submit:hover {
-            background-color: #8B7D74; /* 灰褐色 */
+            background-color: #8B7D74; 
         }
         
         .link-home {
@@ -155,12 +155,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             // 這個函數會向後端發送請求以獲取當前登入會員的資料
             // 這裡是模擬從後端成功獲取資料後的情境
-            // 實際情況下，您需要透過 fetch API 連接到真實的後端 (例如 process_account.php)
+            
             fetchUserData();
         });
 
         function fetchUserData() {
-            // *** 開發注意：這裡的 URL 需要替換成您真實的後端API端點 ***
+            
             fetch('process_account.php?action=get_data')
             .then(response => {
                 // 模擬網路延遲和處理非200的狀況
@@ -172,7 +172,7 @@
                 }
                 return response.json();
             })
-            // 【請換成這段新的、正確的部分】
+         
 .then(result => { 
     // 檢查後端是否回傳成功，並且 'data' 物件是否存在
     if (result.success && result.data) {
@@ -221,7 +221,7 @@
                 delete data.password;
             }
 
-            // *** 開發注意：這裡的 URL 需要替換成您真實的後端API端點 ***
+            
             fetch('process_account.php?action=update_data', {
                 method: 'POST',
                 headers: {

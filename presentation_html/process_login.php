@@ -5,11 +5,11 @@ header('Content-Type: application/json');
 // 啟用 PHP Session，以便在登入成功後儲存使用者狀態
 session_start();
 
-// === 資料庫連線資訊 (請根據您的環境修改) ===
-$db_host = '127.0.0.1'; // 或您的資料庫主機 IP
-$db_name = 'Ｘ＿Hotel';    // 您的資料庫名稱
-$db_user = 'root';       // 您的資料庫使用者名稱
-$db_pass = '';       // 您的資料庫密碼
+// === 資料庫連線資訊 ===
+$db_host = '127.0.0.1'; 
+$db_name = 'Ｘ＿Hotel';    
+$db_user = 'root';       
+$db_pass = '';       
 $charset = 'utf8mb4';
 
 // Data Source Name (DSN)
@@ -40,8 +40,7 @@ try {
     // 建立 PDO 物件
     $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 
-    // 準備 SQL 查詢，使用預處理陳述式來防止 SQL Injection
-    // 只根據使用者名稱查詢，避免洩漏帳號是否存在
+    
     $stmt = $pdo->prepare("SELECT UserID, Username, PasswordHash FROM Users WHERE Username = ?");
     
     // 綁定參數並執行
@@ -51,8 +50,8 @@ try {
     $user = $stmt->fetch();
 
     // === 驗證邏輯 ===
-    // 1. 檢查是否有找到使用者
-    // 2. 使用 password_verify() 比對使用者輸入的密碼與資料庫中的雜湊值
+    // 檢查是否有找到使用者
+    //  使用 password_verify() 比對使用者輸入的密碼與資料庫中的雜湊值
     if ($user && password_verify($password, $user['PasswordHash'])) {
         // 驗證成功
         $response['success'] = true;

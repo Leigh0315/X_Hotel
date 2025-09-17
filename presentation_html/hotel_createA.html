@@ -50,7 +50,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    <!-- ▼▼▼ 修改後的 JavaScript ▼▼▼ -->
+    
     <script>
         document.getElementById('signupForm').addEventListener('submit', function (event) {
             // 防止表單的預設送出行為
@@ -70,7 +70,7 @@
                     // 顯示後端傳來的成功訊息，例如 "註冊成功！驗證信已寄出..."
                     alert(result.message); 
                     
-                    // 【已修改】將頁面跳轉到您的首頁
+                    // 將頁面跳轉到您的首頁
                     window.location.href = 'http://localhost/S_presentation/presentation_html/hotel_main.html'; // 請確認這是您首頁的正確檔名
                 } else {
                     // 如果後端顯示失敗，顯示後端傳來的錯誤訊息

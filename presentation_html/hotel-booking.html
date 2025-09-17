@@ -331,7 +331,7 @@
                         priceElement.textContent = `${totalPrice.toLocaleString()} TWD`;
                         priceNoteElement.textContent = `共 ${nights} 晚, ${roomCount} 間房`;
                     } else {
-                        // 如果天數無效 (例如 0 天或退房日較早)，則顯示回每晚的單價
+                        // 如果天數無效 ，則顯示回每晚的單價
                         priceElement.textContent = `${pricePerNight.toLocaleString()} TWD`;
                         priceNoteElement.textContent = `每晚`;
                     }

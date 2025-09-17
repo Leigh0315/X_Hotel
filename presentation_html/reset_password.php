@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 $db_host = '127.0.0.1';
 $db_user = 'root';
 $db_pass = '';
-// 【關鍵修正】將資料庫名稱改為您其他檔案中使用的全形版本
+
 $db_name = 'Ｘ＿Hotel';
 
 // 建立資料庫連線
@@ -61,7 +61,7 @@ $conn->close();
     <div class="container-box">
         <h2 id="pageTitle">設定新密碼</h2>
         <?php if ($is_token_valid): ?>
-            <!-- 【優化】將表單與提示文字包在一個容器中，方便一起隱藏 -->
+           
             <div id="formContainer">
                 <p>請輸入您的新密碼。</p>
                 <form id="resetPasswordForm">
@@ -71,7 +71,7 @@ $conn->close();
                     <button type="submit" class="submit-btn">更新密碼</button>
                 </form>
             </div>
-            <!-- 【優化】將訊息框移到表單容器外 -->
+          
             <div id="messageBox" class="alert message" role="alert"></div>
         <?php else: ?>
             <div class="alert alert-danger"><?= $error_message ?></div>
@@ -102,7 +102,7 @@ $conn->close();
             })
             .then(response => response.json())
             .then(result => {
-                // 【優化】根據後端回傳結果，提供更清晰的介面變化
+                // 根據後端回傳結果，提供更清晰的介面變化
                 if (result.success) {
                     // 1. 隱藏整個表單容器
                     document.getElementById('formContainer').style.display = 'none';

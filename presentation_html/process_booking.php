@@ -54,7 +54,7 @@ try {
         }
         $passwordHash = password_hash($data->password, PASSWORD_DEFAULT);
         
-        // 【第 1 處修正】在新增會員時，加入電話、國家和地址
+        
         $stmt = $pdo->prepare(
             "INSERT INTO Users (Username, PasswordHash, Email, FirstName, LastName, Phone, Country, Address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         );
@@ -84,7 +84,7 @@ try {
 
     // 如果是訪客訂房（使用者記錄不存在）
     if ($userId === null) {
-        // 【第 2 處修正】在新增訪客記錄時，也加入電話、國家和地址
+        // 在新增訪客記錄時，也加入電話、國家和地址
         $stmt = $pdo->prepare(
             "INSERT INTO Users (Username, Email, PasswordHash, FirstName, LastName, Phone, Country, Address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         );

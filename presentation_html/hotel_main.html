@@ -134,7 +134,7 @@
         window.addEventListener('DOMContentLoaded', (event) => {
             const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 
-            // 【修正點 1】直接選取登入按鈕本身
+            // 直接選取登入按鈕本身
             const loginButton = document.getElementById('login-button');
 
             if (isLoggedIn === 'true' && loginButton) {
@@ -157,7 +157,7 @@
                 </ul>
             `;
 
-                // 【修正點 2】用新的下拉選單元件「替換掉」舊的登入按鈕
+                // 用新的下拉選單元件「替換掉」舊的登入按鈕
                 loginButton.replaceWith(dropdownContainer);
 
                 // 為新的選項按鈕加上點擊事件

@@ -19,12 +19,12 @@ error_reporting(E_ALL);
 $db_host = '127.0.0.1';
 $db_user = 'root';
 $db_pass = '';
-$db_name = 'Ｘ＿Hotel'; // 【修改】您的資料庫名稱
+$db_name = 'Ｘ＿Hotel'; 
 
 // --- HTTP Header ---
 header('Content-Type: application/json');
 
-// --- 建立資料庫連線 (使用您原本的 mysqli) ---
+// --- 建立資料庫連線 ---
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 if ($conn->connect_error) {
     echo json_encode(['success' => false, 'message' => '資料庫連線失敗: ' . $conn->connect_error]);
@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // --- 從 POST 請求中獲取資料 ---
 $lastName = $_POST['lastName'] ?? '';
 $firstName = $_POST['firstName'] ?? '';
-$username = $_POST['username'] ?? ''; // 在您的結構中，Email 和 Username 相同
-$email = $_POST['username'] ?? '';    // 所以我們同時用它
+$username = $_POST['username'] ?? ''; //
+$email = $_POST['username'] ?? '';    // 
 $password = $_POST['password'] ?? '';
 $phone = $_POST['phone'] ?? '';
 $address = $_POST['address'] ?? '';
@@ -95,8 +95,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'leighmingchin@gmail.com'; // 【修改】您的 Gmail 帳號
-    $mail->Password   = 'pjuoaakmsigwerwx';         // 【修改】您的 16 位應用程式密碼
+    $mail->Username   = 'leighmingchin@gmail.com'; // Gmail 帳號
+    $mail->Password   = '';         // 16 位應用程式密碼
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
     // 信件內容設定
@@ -105,7 +105,7 @@ try {
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
     $mail->Subject = '歡迎來到 X-Hotel飯店訂房網！請驗證您的電子信箱';
-    // 【修改】請將 'yourdomain.com/path/to' 換成您專案的真實網址路徑
+    
     $verification_link = "http://localhost/S_presentation/presentation_html/verify.php?token=" . $verification_token;
     $mail->Body = "<h3>親愛的 {$lastName} {$firstName}，您好！</h3><p>感謝您的註冊，請點擊下方的連結來啟用您的帳號：</p><p><a href='{$verification_link}' style='padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;'>立即啟用帳號</a></p><p>此連結將在一小時後失效。</p>";
     $mail->send();
